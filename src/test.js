@@ -1,37 +1,38 @@
 import React from 'react'
-import pic1 from './images/pic01.jpg'
 
-class Test extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            count:0
-        }
-        this.clickHandler=this.clickHandler.bind(this)
-        this.halfHandler=this.halfHandler.bind(this)
+class Test extends React.Component {
+    constructor() {
+        super();
+        this.state = { 
+            data:{
+                isLoggedin:true,
+            loginValue: 'You are Logged in',
+            logoutValue:'You are logged out'
+            }
+         }
+         this.loggedIn=this.loggedIn.bind(this)
     }
-    clickHandler(){
+    loggedIn=()=>{
         this.setState(prevState=>{
-            return{
-                count:prevState.count +2
+            const login= prevState.data.map(function(item){
+                if(item.isLoggedin){
+                    item.isLoggedin= !item.isLoggedin
+                }return item
+            })
+            return {
+                data:login
             }
         })
     }
-    halfHandler(){
-        this.setState(prevState=>{
-            return{
-                count:(prevState.count/2)
-            }
-        })
-    }
-    render(){
-        return(
+
+    render() { 
+        return ( 
             <div>
-                <h1>{this.state.count}</h1>
-                <button onClick={this.clickHandler}>Click Me to double</button>
-                <button onClick={this.halfHandler}>Click Me to half</button>
+                <h1>{this.state.data.isLoggedin ?this.state.data.loginValue:this.state.data.logoutValue}</h1>
+               <button onClick={this.loggedIn}>{this.state.isLoggedin?'Log out':'Log in'}</button>
             </div>
-        )
+         );
     }
 }
-export default Test 
+ 
+export default Test;

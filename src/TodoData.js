@@ -1,4 +1,6 @@
-const todos = [
+import React from 'react';
+
+const todosData =[
     {
         id: 1,
         name: 'Have some exercise',
@@ -20,5 +22,4 @@ const todos = [
         completed: true
     }
 ]
-
-export default todos
+export default todosData;
