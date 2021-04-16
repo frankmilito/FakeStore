@@ -1,38 +1,25 @@
-import React from 'react'
+import React from 'react';
 
 class Test extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { 
-                isLoggedin:true,
-            loginValue: 'You are Logged in',
-            logoutValue:'You are logged out'
+            isLoggedin: true
          }
-         this.loggedIn=this.loggedIn.bind(this)
+         this.isClicked=this.isClicked.bind(this)
     }
-    loggedIn=()=>{
+    isClicked(){
         this.setState(prevState=>{
-            // const login= prevState.data.map(function(item){
-            //     if(item.isLoggedin){
-            //         item.isLoggedin= !item.isLoggedin
-            //     }return item
-            // })
-            // return {
-            //     data:login
-            // }
-
             return{
-                ...prevState,
                 isLoggedin: !prevState.isLoggedin
             }
         })
     }
-
     render() { 
+        let button = this.state.isLoggedin?'Log In': 'Log Out'
         return ( 
             <div>
-                <h1>{this.state.isLoggedin ?this.state.loginValue:this.state.logoutValue}</h1>
-               <button onClick={this.loggedIn}>{this.state.isLoggedin?'Log out':'Log in'}</button>
+                <button onClick={this.isClicked}>{button}</button>
             </div>
          );
     }

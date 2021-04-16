@@ -26,11 +26,11 @@ class App extends React.Component {
     }
 
     render() { 
-        // const myTodo = this.state.todos.map(item=><TodoItems key={item.id} item={item} handleChange={this.handleChange}/>)
+        const myTodo = this.state.todos.map(item=><TodoItems key={item.id} item={item} handleChange={this.handleChange}/>)
         return ( 
             <div>
-                {/* {myTodo} */}
-                <Test/>
+                {myTodo}
+               
             </div>
          );
     }
