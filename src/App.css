@@ -1,31 +1,4 @@
-body{
-  background:#f4f4f4;
-}
 img{
-  max-width: 100%;
-}
-.color{
-  background: tomato;
-  color: #fff;
-}
-.color1{
-  background: green;
-  color: #fff;
-}
-.color2{
-  background: rgb(25, 5, 78);
-  color: #fff;
-}
-.todo-items label{
-  padding:0 5px;
-  font-size: 18px;
-  font-weight: bold;
-}
-.todo-items{
-  text-align: center;
-  margin:0 auto;
-  background:#fff;
-  padding: 30px;
-  width: 300px;
-  border-bottom: 2px solid silver;
+  width: 100px;
+  height: 100px;
 }

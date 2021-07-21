@@ -1,41 +1,22 @@
 import React from 'react'
-import todosData from './TodoData'
-import TodoItems from './TodoItems';
-import Test from './test'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Header from './container/Header'
+import ProductDetail from './container/ProductDetail'
+import ProductListing from './container/ProductListing'
 
-
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = { 
-           todos:todosData
-         }
-         this.handleChange = this.handleChange.bind(this)
-    }
-    handleChange(id){
-       this.setState(prevState=>{
-           const updatedTodos=prevState.todos.map(todo=>{
-               if(todo.id===id){
-                   todo.completed = !todo.completed
-               } return todo
-           }) 
-           return{
-               todos: updatedTodos
-           }
-       })
-    }
-
-    render() { 
-        const myTodo = this.state.todos.map(item=><TodoItems key={item.id} item={item} handleChange={this.handleChange}/>)
-        return ( 
-            <div>
-                {myTodo}
-               
-            </div>
-         );
-    }
+function App() {
+    return (
+        <div>
+            <Router>
+                <Header/>
+                <Switch>
+                    <Route path ='/' exact component={ProductListing}/>
+                    <Route path ='/product/:productId' exact component={ProductDetail}/>
+                    <Route>404 Not Found</Route>
+                </Switch>
+            </Router>
+        </div>
+    )
 }
- 
-export default App;
- 
 
+export default App
